@@ -10,4 +10,5 @@ mv    : to move a file
 rm    : to remove a file
 rm -r : to remove a dir
 cd .. : to go to previous dir
-file  : to print file type  
+file  : to print file type
+ln -s : create symbolic link  
