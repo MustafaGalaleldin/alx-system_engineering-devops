@@ -1,0 +1,2 @@
+#!/bin/bssh
+mkdir -p welcome/to/school
