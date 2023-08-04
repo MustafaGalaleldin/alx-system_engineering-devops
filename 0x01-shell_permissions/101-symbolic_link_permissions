@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo chown -d  vincent:staff _hello.symlnk
+sudo chown -h vincent:staff _hello.symlnk
