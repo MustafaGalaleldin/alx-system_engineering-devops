@@ -1,0 +1,1 @@
+scripts about shell redirecions
