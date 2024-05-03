@@ -1,1 +1,8 @@
 #!/usr/bin/env bash
+# an until loop that print a string 10 times
+i=10
+until [ $i = 0 ]
+do
+	echo "Best School"
+	(( i-- ))
+done
