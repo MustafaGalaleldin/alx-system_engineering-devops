@@ -1,1 +1,10 @@
 #!/usr/bin/env bash
+# extracting /etc/passwd file
+IFS=':'
+declare -a array
+exec {fd}< "/etc/passwd"
+while read -a array -u $fd
+do
+	echo "${array[0]}:${array[3]}:${array[5]}"
+done
+exec {fd}>&-
