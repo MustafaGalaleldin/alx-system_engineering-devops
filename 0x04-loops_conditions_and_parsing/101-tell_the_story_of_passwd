@@ -1,1 +1,10 @@
 #!/usr/bin/env bash
+# etc/passwd file story
+declare -a array
+IFS=':'
+exec {fd}<"/etc/passwd"
+while read -ra array -u $fd
+do
+	echo "The user ${array[0]} is part of the ${array[3]} gang, lives in ${array[5]} and rides ${array[6]}. ${array[2]}'s place is protected by the passcode ${array[1]}, more info about the user here: ${array[4]}"
+done
+exec {fd}>&-
