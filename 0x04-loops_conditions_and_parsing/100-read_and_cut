@@ -3,7 +3,7 @@
 IFS=':'
 declare -a array
 exec {fd}< "/etc/passwd"
-while read -a array -u $fd
+while read -r -a array -u $fd
 do
 	echo "${array[0]}:${array[3]}:${array[5]}"
 done
