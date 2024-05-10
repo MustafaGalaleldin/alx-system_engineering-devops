@@ -3,6 +3,6 @@
 cp /etc/hosts ~/temp_hosts
 str1="$(awk '/localhost/ {print $1; exit;}' < /etc/hosts)"
 sed -i "s/$str1/127.0.0.2/g" ~/temp_hosts
-echo "facebook.com	8.8.8.8" >> ~/temp_hosts
+echo "8.8.8.8	facebook.com" >> ~/temp_hosts
 cat ~/temp_hosts > /etc/hosts
 rm -f ~/temp_hosts
