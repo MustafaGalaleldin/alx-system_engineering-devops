@@ -1,2 +1,10 @@
 #!/usr/bin/env bash
 # a Bash script that configures an Ubuntu server with some requirements.
+cp /etc/hosts ~/temp_hosts
+# str1="$(cat /etc/hosts | grep -m 1 1ocalhost | cut -d $'\t' -f 1)"
+str2=$(cat /etc/hosts | grep -m 1 facebook.com | cut -d $'\t' -f 1)
+sed -i "s/127.0.0.1/127.0.0.2/g" ~/temp_hosts
+# sed -i "s|$escaped_str2|8.8.8.8|g" ~/temp_hosts
+# awk "{gsub(/$str1/,127.0.0.2); print}" /etc/hosts > ~/temp_hosts
+cat ~/temp_hosts > /etc/hosts
+rm -f ~/temp_hosts
