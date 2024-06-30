@@ -3,7 +3,7 @@ include stdlib
 file_line { 'ssh_config':
     ensure  => present
     path    => '/etc/ssh/ssh_config',
-    line    => '.+PasswordAuthentication no$',
-    match   => '.+PasswordAuthentication yes$',
+    line    => '^.+PasswordAuthentication no',
+    match   => '^.+PasswordAuthentication yes',
     replace => true,
     }
