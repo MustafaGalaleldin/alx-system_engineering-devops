@@ -14,5 +14,5 @@ file_line { 'identity':
     path   => '/etc/ssh/ssh_config',
     line   => 'IdentityFile ~/.ssh/school',
     match  => 'IdentityFile'
-    ensure => present,
+    ensure => 'present',
     }
