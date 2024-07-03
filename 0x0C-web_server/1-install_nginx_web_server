@@ -3,7 +3,7 @@
 sudo apt-get update
 sudo apt-get -y install nginx
 touch temp.txt
-echo "Hello World!" > temp.txt
+echo "<html> <body><h1>Hello World!</h1></body> </html>" > temp.txt
 sudo cp temp.txt /var/www/html/index.html
 rm -f temp.txt
 sudo service nginx restart
