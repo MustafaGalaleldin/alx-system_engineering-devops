@@ -2,8 +2,6 @@
 # a Bash script that configures a new Ubuntu machine to respect requirements
 sudo apt-get update
 sudo apt-get -y install nginx
-touch temp.txt
-echo "<html> <body><h1>Hello World!</h1></body> </html>" > temp.txt
-sudo cp temp.txt /var/www/html/index.html
-rm -f temp.txt
+sudo service nginx start
+touch /var/www/html/index.html < echo "Hello World!"
 sudo service nginx restart
