@@ -6,8 +6,4 @@ sudo apt-get -y install nginx
 sudo service nginx start
 to_add="\tlocation /redirectme {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
 sudo sed -i "/server_name _;/a \\$to_add" /etc/nginx/sites-available/default
-if sudo nginx -t; then
-	sudo service nginx restart
-else
-	echo 'try'
-fi
+sudo service nginx restart
