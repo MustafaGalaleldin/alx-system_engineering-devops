@@ -1,7 +1,7 @@
 # a Puppet manifest containing commands to automatically configure an Ubuntu machine to respect above requirements
 exec { 'update':
-    command  => '/usr/bin/apt-get update'
-    path     => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
+    command => '/usr/bin/apt-get update'
+    path    => ['/usr/bin', '/usr/sbin', '/bin', '/sbin'],
 }
 package { 'nginx':
     ensure   => installed,
