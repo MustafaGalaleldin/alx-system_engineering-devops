@@ -6,7 +6,7 @@ package { 'nginx':
     provider => apt
 }
 file { 'index.html':
-    path    => '/var/www/html/index.html',
     ensure  => 'present',
+    path    => '/var/www/html/index.html',
     content => 'Hello World!'
 }
