@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#  a Bash script with the minimum number of commands to automate your fix
+sudo apt -y update
+sudo apt -y install nginx
+sudo service nginx start
