@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# apache server fixer
+sudo service apache start
