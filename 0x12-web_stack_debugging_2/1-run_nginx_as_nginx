@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# a Bash script that configures the container to fit the requirements
+su nginx
+sed -i 's/listen 80/listen 8080' /etc/nginx/sites-available/default
+sed -i 's/listen [::]:80/listen [::]:8080' /etc/nginx/sites-available/default
