@@ -3,12 +3,12 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo service nginx start
-to_add="\tadd_header X-Served-By `513168-web-02`"
-sudo sed -i "/server_name _;/a \\$to_add;" /etc/nginx/sites-available/default
-to_add="\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
-sudo sed -i "/server_name _;/a \\$to_add" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_error > /dev/null
-string="\terror_page 404 /custom_error;"
-sudo sed -i "/server_name _;/a \\$string" /etc/nginx/sites-available/default
-echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+header="\tadd_header X-Served-By $HOSTNAME"
+sudo sed -i "/server_name _;/a \\$header;" /etc/nginx/sites-available/default
+# to_add="\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}"
+# sudo sed -i "/server_name _;/a \\$to_add" /etc/nginx/sites-available/default
+# echo "Ceci n'est pas une page" | sudo tee /var/www/html/custom_error > /dev/null
+# string="\terror_page 404 /custom_error;"
+# sudo sed -i "/server_name _;/a \\$string" /etc/nginx/sites-available/default
+# echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
 sudo service nginx restart
