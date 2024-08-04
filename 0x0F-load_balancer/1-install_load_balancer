@@ -11,4 +11,5 @@ front="frontend myfrontend\n\tmode http\n\tbind :80\n\tdefault_backend web_serve
 back="\nbackend web_servers\n\tmode http\n\tbalance roundrobin\n\t$server1\n\t$server2"
 echo -e "$front" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
 echo -e "$back" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
+echo -e "# Set ENABLED to 1 if you want the init script to start haproxy.\nENABLED=1" | sudo tee -a /etc/default/haproxy > /dev/null
 sudo service haproxy restart
