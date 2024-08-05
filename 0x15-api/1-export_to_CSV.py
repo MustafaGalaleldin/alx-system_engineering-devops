@@ -18,7 +18,7 @@ if __name__ == "__main__":
     fields = ["userId", "name", "completed", "title"]
     for user in user_list:
         if user.get("id") == user_id:
-            user_name = user.get("name")
+            user_name = user.get("username")
             break
     for todo in todo_list:
         if todo.get("userId") == user_id:
