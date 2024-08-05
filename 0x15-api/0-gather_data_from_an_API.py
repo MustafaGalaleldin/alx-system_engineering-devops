@@ -25,9 +25,9 @@ if __name__ == '__main__':
     for todo in todo_response_list:
         if todo.get('userId') == employee_id:
             TOTAL_NUMBER_OF_TASKS += 1
-            if todo.get('completed') == True:
+            if todo.get('completed') is True:
                 NUMBER_OF_DONE_TASKS += 1
                 TASK_TITLE += f"\n\t {todo.get('title')}"
     print(f"Employee {EMPLOYEE_NAME} is done with tasks("
-            f"{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):", end="")
+          f"{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):", end="")
     print(TASK_TITLE)
