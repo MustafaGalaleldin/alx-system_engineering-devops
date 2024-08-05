@@ -15,7 +15,7 @@ if __name__ == "__main__":
     user_list = user_response.json()
     user_name = ""
     results = []
-    fields = ["userId", "name", "completed", "title"]
+    fields = ["userId", "username", "completed", "title"]
     for user in user_list:
         if user.get("id") == user_id:
             user_name = user.get("username")
@@ -23,8 +23,9 @@ if __name__ == "__main__":
     for todo in todo_list:
         if todo.get("userId") == user_id:
             temp_dict = {k: v for k, v in todo.items() if k != "id"}
-            temp_dict["name"] = user_name
+            temp_dict["username"] = user_name
             results.append(temp_dict)
     with open(f"{user_id}.csv", "w") as csvfile:
-        writer = csv.DictWriter(f=csvfile, fieldnames=fields)
+        writer = csv.DictWriter(f=csvfile, fieldnames=fields, quotechar='"',
+                                quoting=csv.QUOTE_NONNUMERIC)
         writer.writerows(results)
