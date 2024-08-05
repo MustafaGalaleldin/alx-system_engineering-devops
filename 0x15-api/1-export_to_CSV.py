@@ -27,5 +27,5 @@ if __name__ == "__main__":
             results.append(temp_dict)
     with open(f"{user_id}.csv", "w") as csvfile:
         writer = csv.DictWriter(f=csvfile, fieldnames=fields, quotechar='"',
-                                quoting=csv.QUOTE_NONNUMERIC)
+                                quoting=csv.QUOTE_ALL)
         writer.writerows(results)
