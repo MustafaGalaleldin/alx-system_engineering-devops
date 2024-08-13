@@ -8,7 +8,7 @@ def number_of_subscribers(subreddit):
     subscribers = 0
     url = f"https://api.reddit.com/r/{subreddit}/about"
     try:
-        response = requests.get(url)
+        response = requests.get(url, allow_redirects=False)
         result = response.json()
         for k, v in result["data"].items():
             if k == "subscribers":
