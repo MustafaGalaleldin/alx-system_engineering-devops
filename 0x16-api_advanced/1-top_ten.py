@@ -13,12 +13,13 @@ def top_ten(subreddit):
     try:
         count = 0
         response = requests.get(url, allow_redirects=False, headers=headers)
-        result = response.json()
-        for dic in result["data"]["children"]:
-            if count < 10:
-                print(dic["data"].get("title"))
-                count += 1
-            else:
-                break
+        if response.status_code == 200:
+            result = response.json()
+            for dic in result["data"]["children"]:
+                if count < 10:
+                    print(dic["data"].get("title"))
+                    count += 1
+                else:
+                    break
     except Exception:
         print(None)
