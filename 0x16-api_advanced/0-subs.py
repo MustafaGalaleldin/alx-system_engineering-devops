@@ -7,7 +7,7 @@ def number_of_subscribers(subreddit):
     "returns the number of subscribers or 0 if invalid"
     subscribers = 0
     url = f"https://api.reddit.com/r/{subreddit}/about"
-    headers = {"User-Agent": "python:0-subs.py:v3.0"}
+    headers = {"User-Agent": "python:subreddit.subscriber.counter:v1.0"}
     try:
         response = requests.get(url, allow_redirects=False, headers=headers)
         result = response.json()
