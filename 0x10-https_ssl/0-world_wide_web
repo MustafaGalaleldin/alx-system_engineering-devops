@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# a Bash script that will display information about subdomains
+sub_domain="$2"
+domain="$1"
+function digger {
+	if [ -z "$sub_domain" ];then
+		for sub in www lb-01 web-01 web-02
+		do
+			server_ip=$(dig "$sub"."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR == 2{print $5}')
+			record=$(dig "$sub"."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR == 2{print $4}')
+			echo "The subdomain $sub is a $record record and points to $server_ip"
+		done
+	else
+		server_ip=$(dig "$sub_domain"."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR == 2{print $5}')
+		record=$(dig "$sub_domain"."$domain" | grep -A1 'ANSWER SECTION:' | awk 'NR == 2{print $4}')
+		echo "The subdomain $sub_domain is a $record record and points to $server_ip"
+	fi
+}
+digger
