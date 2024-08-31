@@ -2,12 +2,12 @@
 # Configure HAproxy so that it send traffic to web-01 and web-02
 sudo apt-get -y update
 sudo apt-get -y install --no-install-recommends software-properties-common
-sudo add-apt-repository ppa:vbernat/haproxy-2.8
+sudo add-apt-repository -y ppa:vbernat/haproxy-2.8
 sudo apt-get -y install haproxy=2.8.\*
 sudo systemctl start haproxy
 server1="server 513168-web-01 52.201.220.63:80 check"
 server2="server 513168-web-02 54.236.24.172:80 check"
-front="frontend myfrontend\n\tmode http\n\tbind :80\n\tdefault_backend web_servers"
+front="frontend myfrontend\n\tmode http\n\tbind 0:80\n\tdefault_backend web_servers"
 back="\nbackend web_servers\n\tmode http\n\tbalance roundrobin\n\t$server1\n\t$server2"
 echo -e "$front" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
 echo -e "$back" | sudo tee -a /etc/haproxy/haproxy.cfg > /dev/null
